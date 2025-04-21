@@ -8,14 +8,13 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
 ```{r}
-install.packages("janitor")
 library(janitor)
 library(tidyverse)
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 ```{r}
-data <- read_csv("Data/FundFlowFinal.csv")
+data <- read_csv("Data/test2.csv")
 
 
 ```
@@ -24,20 +23,78 @@ data <- read_csv("Data/FundFlowFinal.csv")
 flowSum <- data %>%
   mutate(total_flow = rowSums(across(c(Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415, Flow416), as.numeric), na.rm = TRUE))
 
-flowSum <- flowSum %>% select('Morningstar Category', 'US Category Group', total_flow, everything())
-
 flowSum <- flowSum %>% clean_names()
 
+flowSum <- flowSum %>% mutate(pctGrowth = total_flow / assets43)
+
+flowSum <- flowSum %>% select('morningstar_category', 'us_category_group', total_flow, pctGrowth, everything())
+
+mcatSum <- flowSum %>%
+  group_by(morningstar_category) %>% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+mcatGrowth <- flowSum %>%
+  group_by(morningstar_category) %>%
+  summarise(pctGrowth = ifelse(sum(assets43, na.rm = TRUE) == 0,
+                               NA_real_,
+                               sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE)))
+
 unique_values <- flowSum %>%
-  distinct(sub_theme_3) %>%  # Select distinct rows based on col
-  pull(sub_theme_3)
+  distinct(sub_theme_5) %>%  # Select distinct rows based on col
+  pull(sub_theme_5)
 
 broadthemeSum <- flowSum %>%
-  group_by(broad_theme_2) %>% 
+  group_by(broad_theme_6) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
 
 subthemeSum <- flowSum %>%
-  group_by(sub_theme_3) %>% 
+  group_by(sub_theme_5) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+subthemeGrowth <- flowSum %>%
+  group_by(sub_theme_5) %>%
+  summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
 ```
 
+Active passive calcs
+```{r}
+df_active <- flowSum %>% filter(management_approach_active == "Yes")
+df_passive <- flowSum %>% filter(management_approach_passive == "Yes")
+df_beta<- flowSum %>% filter(management_approach_strategic_beta == "Yes")
+
+# df_active <- df_active %>%
+#   mutate(overall_pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+# 
+# df_passive <- df_passive %>%
+#   mutate(overall_pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+# 
+# df_active <- df_active %>% select(overall_pctGrowth, everything())
+# df_passive <- df_passive %>% select(overall_pctGrowth, everything())
+
+# df_active <- df_active %>%  mutate(overall_pctGrowth = scales::percent(pctGrowth, accuracy = 0.1))
+
+df_summary <- bind_rows(
+  df_active %>% summarise(type = "active",
+                          total_flow = sum(total_flow, na.rm = TRUE),
+                          assets43 = sum(assets43, na.rm = TRUE)),
+  df_passive %>% summarise(type = "passive",
+                           total_flow = sum(total_flow, na.rm = TRUE),
+                           assets43 = sum(assets43, na.rm = TRUE))
+) %>% pivot_wider(names_from = type, values_from = c(total_flow, assets43))
+
+df_summary <- df_summary %>%
+  mutate(pctGrowth_active = total_flow_active / assets43_active,
+         pctGrowth_passive = total_flow_passive / assets43_passive)
+
+df_summary <- df_summary %>%
+  mutate(across(starts_with("pctGrowth"), ~ scales::percent(.x, accuracy = 0.1)))
+
+```
+
+
+Leveraged:
+```{r}
+df_leveraged <- flowSum %>%
+  filter(str_detect(tolower(morningstar_category), "leveraged"))
+
+```

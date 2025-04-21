@@ -1760,8 +1760,9 @@ the chunk or by placing your cursor inside it and pressing
 <em>Ctrl+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShqYW5pdG9yKVxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(janitor)
+library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1769,34 +1770,35 @@ the chunk or by placing your cursor inside it and pressing
 toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSByZWFkX2NzdihcIkRhdGEvbGliZXJhdGlvbkZsb3cuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>data &lt;- read_csv(&quot;Data/liberationFlow.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSByZWFkX2NzdihcIkRhdGEvdGVzdDIuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>data &lt;- read_csv(&quot;Data/test2.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogT25lIG9yIG1vcmUgcGFyc2luZyBpc3N1ZXMsIGNhbGwgYHByb2JsZW1zKClgIG9uIHlvdXIgZGF0YSBmcmFtZSBmb3IgZGV0YWlscywgZS5nLjpcbiAgZGF0IDwtIHZyb29tKC4uLilcbiAgcHJvYmxlbXMoZGF0KVJvd3M6IDQyNTEgQ29sdW1uczogMTQz4pSA4pSAIENvbHVtbiBzcGVjaWZpY2F0aW9uIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuRGVsaW1pdGVyOiBcIixcIlxuY2hyICg4Myk6IE5ldCBBc3NldHMgXG4tIFNoYXJlIENsYXNzIFxuQmFzZSBcbkN1cnJlbmN5LCBNb3JuaW5nc3RhciBDYXRlZ29yeSwgVVMgQ2F0ZWdvcnkgR3JvdXAsIE5hbWUsIFRpY2tlciwgSVNJTiwgR2xvYmFsLi4uXG5kYmwgKDI3KTogRmxvdzQzLCBGbG93NDQsIEZsb3c0NywgRmxvdzQ4LCBGbG93NDksIEZsb3c0MTAsIEZsb3c0MTEsIEZsb3c0MTQsIEZsb3c0MTUsIE1vcm5pbmdzdGFyIFxuUmF0aW5nIFxuT3ZlcmFsbCwgTWFuYS4uLlxubnVtICAoOSk6IFNoYXJlcyBPdXRzdGFuZGluZywgVG90YWwgUmV0IFxuMSBZciBcbihEYWlseSkgXG5CYXNlIFxuQ3VycmVuY3ksIFRvdGFsIFJldCBcbkFubmx6ZCAyIFlyIFxuKERhaWx5KSBcbkJhc2UgXG5DdXJyZW5jeSwuLi5cbmxnbCAoMjQpOiBFc3RpbWF0ZWQgRnVuZC1MZXZlbCBOZXQgRmxvdyAtIGFnZ3IgZnJvbSBzaGFyZSBjbGFzc2VzIChEYWlseSkgXG4yMDI1LTA0LTA1IFxuQmFzZSBcbkN1cnJlbmN5LCBFc3RpbWF0ZWQgRnVuZC1MZS4uLlxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
-<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOldhcm5pbmc6IE9uZSBvciBtb3JlIHBhcnNpbmcgaXNzdWVzLCBjYWxsIGBwcm9ibGVtcygpYCBvbiB5b3VyIGRhdGEgZnJhbWUgZm9yIGRldGFpbHMsIGUuZy46XG4gIGRhdCA8LSB2cm9vbSguLi4pXG4gIHByb2JsZW1zKGRhdClSb3dzOiA0MjU0IENvbHVtbnM6IDE1M+KUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDc0KTogTmFtZSwgVGlja2VyLCBJU0lOLCBTdWItVGhlbWUuLi41LCBCcm9hZCBUaGVtZS4uLjYsIFRoZW1lLi4uNywgTWFuYWdlbWVudCBBcHByb2FjaCBcbi0gQWN0aXZlLCBNYW5hZ2VtZW4uLi5cbmRibCAgKDIyKTogTW9ybmluZ3N0YXIgXG5SYXRpbmcgXG5PdmVyYWxsLCBNYW5hZ2VyIFxuVGVudXJlIFxuKExvbmdlc3QpLCBNYW5hZ2VyIFxuVGVudXJlIFxuKEF2ZXJhZ2UpLCAxMiBNbyBcbllpZWxkLCBZaWUuLi5cbm51bSAgKDE3KTogRmxvdzQzLCBGbG93NDQsIEZsb3c0NywgRmxvdzQ4LCBGbG93NDksIEZsb3c0MTAsIEZsb3c0MTEsIEZsb3c0MTQsIEZsb3c0MTUsIEZsb3c0MTYsIEFzc2V0czQzLCBOZXQgQXNzZS4uLlxubGdsICAoMjYpOiBNYW5hZ2VtZW50IEFwcHJvYWNoLCBFc3RpbWF0ZWQgRnVuZC1MZXZlbCBOZXQgRmxvd1xuIC0gYWdnciBmcm9tIHNoYXJlIGNsYXNzZXMgKERhaWx5KSBcbjIwMjUtMDQtMDUgXG5CYXNlLi4uXG5kYXRlICgxNCk6IEluY2VwdGlvbiBcbkRhdGUsIE5ldCBBc3NldHMgXG5EYXRlLCBTaGFyZXMgT3V0c3RhbmRpbmcgXG5EYXRlLCAxMiBNbyBcbllpZWxkIERhdGUsIFlpZWxkIDEyIE1vbnRoIFxuQXQgTWFyay4uLlxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>New names:Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
   dat &lt;- vroom(...)
-  problems(dat)Rows: 4251 Columns: 143── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────
+  problems(dat)Rows: 4254 Columns: 153── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
-chr (83): Net Assets 
-- Share Class 
-Base 
-Currency, Morningstar Category, US Category Group, Name, Ticker, ISIN, Global...
-dbl (27): Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415, Morningstar 
+chr  (74): Name, Ticker, ISIN, Sub-Theme...5, Broad Theme...6, Theme...7, Management Approach 
+- Active, Managemen...
+dbl  (22): Morningstar 
 Rating 
-Overall, Mana...
-num  (9): Shares Outstanding, Total Ret 
-1 Yr 
-(Daily) 
-Base 
-Currency, Total Ret 
-Annlzd 2 Yr 
-(Daily) 
-Base 
-Currency,...
-lgl (24): Estimated Fund-Level Net Flow - aggr from share classes (Daily) 
+Overall, Manager 
+Tenure 
+(Longest), Manager 
+Tenure 
+(Average), 12 Mo 
+Yield, Yie...
+num  (17): Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415, Flow416, Assets43, Net Asse...
+lgl  (26): Management Approach, Estimated Fund-Level Net Flow
+ - aggr from share classes (Daily) 
 2025-04-05 
-Base 
-Currency, Estimated Fund-Le...
+Base...
+date (14): Inception 
+Date, Net Assets 
+Date, Shares Outstanding 
+Date, 12 Mo 
+Yield Date, Yield 12 Month 
+At Mark...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <!-- rnb-output-end -->
@@ -1804,18 +1806,93 @@ Currency, Estimated Fund-Le...
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxvd1N1bSA8LSBkYXRhICU+JVxuICBtdXRhdGUodG90YWxfZmxvdyA9IHJvd1N1bXMoYWNyb3NzKGMoRmxvdzQzLCBGbG93NDQsIEZsb3c0NywgRmxvdzQ4LCBGbG93NDksIEZsb3c0MTAsIEZsb3c0MTEsIEZsb3c0MTQsIEZsb3c0MTUpLCBhcy5udW1lcmljKSwgbmEucm0gPSBUUlVFKSlcblxuZmxvd1N1bSA8LSBmbG93U3VtICU+JSBzZWxlY3QoJ01vcm5pbmdzdGFyIENhdGVnb3J5JywgJ1VTIENhdGVnb3J5IEdyb3VwJywgdG90YWxfZmxvdywgZXZlcnl0aGluZygpKVxuXG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmxvd1N1bSA8LSBkYXRhICU+JVxuICBtdXRhdGUodG90YWxfZmxvdyA9IHJvd1N1bXMoYWNyb3NzKGMoRmxvdzQzLCBGbG93NDQsIEZsb3c0NywgRmxvdzQ4LCBGbG93NDksIEZsb3c0MTAsIEZsb3c0MTEsIEZsb3c0MTQsIEZsb3c0MTUsIEZsb3c0MTYpLCBhcy5udW1lcmljKSwgbmEucm0gPSBUUlVFKSlcblxuZmxvd1N1bSA8LSBmbG93U3VtICU+JSBjbGVhbl9uYW1lcygpXG5cbmZsb3dTdW0gPC0gZmxvd1N1bSAlPiUgbXV0YXRlKHBjdEdyb3d0aCA9IHRvdGFsX2Zsb3cgLyBhc3NldHM0MylcblxuZmxvd1N1bSA8LSBmbG93U3VtICU+JSBzZWxlY3QoJ21vcm5pbmdzdGFyX2NhdGVnb3J5JywgJ3VzX2NhdGVnb3J5X2dyb3VwJywgdG90YWxfZmxvdywgcGN0R3Jvd3RoLCBldmVyeXRoaW5nKCkpXG5cbm1jYXRTdW0gPC0gZmxvd1N1bSAlPiVcbiAgZ3JvdXBfYnkobW9ybmluZ3N0YXJfY2F0ZWdvcnkpICU+JSBcbiAgc3VtbWFyaXNlKHRvdGFsX2Zsb3dfc3VtID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkpXG5cbm1jYXRHcm93dGggPC0gZmxvd1N1bSAlPiVcbiAgZ3JvdXBfYnkobW9ybmluZ3N0YXJfY2F0ZWdvcnkpICU+JVxuICBzdW1tYXJpc2UocGN0R3Jvd3RoID0gaWZlbHNlKHN1bShhc3NldHM0MywgbmEucm0gPSBUUlVFKSA9PSAwLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5BX3JlYWxfLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN1bSh0b3RhbF9mbG93LCBuYS5ybSA9IFRSVUUpIC8gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKSlcblxudW5pcXVlX3ZhbHVlcyA8LSBmbG93U3VtICU+JVxuICBkaXN0aW5jdChzdWJfdGhlbWVfNSkgJT4lICAjIFNlbGVjdCBkaXN0aW5jdCByb3dzIGJhc2VkIG9uIGNvbFxuICBwdWxsKHN1Yl90aGVtZV81KVxuXG5icm9hZHRoZW1lU3VtIDwtIGZsb3dTdW0gJT4lXG4gIGdyb3VwX2J5KGJyb2FkX3RoZW1lXzYpICU+JSBcbiAgc3VtbWFyaXNlKHRvdGFsX2Zsb3dfc3VtID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkpXG5cbnN1YnRoZW1lU3VtIDwtIGZsb3dTdW0gJT4lXG4gIGdyb3VwX2J5KHN1Yl90aGVtZV81KSAlPiUgXG4gIHN1bW1hcmlzZSh0b3RhbF9mbG93X3N1bSA9IHN1bSh0b3RhbF9mbG93LCBuYS5ybSA9IFRSVUUpKVxuXG5zdWJ0aGVtZUdyb3d0aCA8LSBmbG93U3VtICU+JVxuICBncm91cF9ieShzdWJfdGhlbWVfNSkgJT4lXG4gIHN1bW1hcmlzZShwY3RHcm93dGggPSBzdW0odG90YWxfZmxvdywgbmEucm0gPSBUUlVFKSAvIHN1bShhc3NldHM0MywgbmEucm0gPSBUUlVFKSlcbmBgYCJ9 -->
 <pre class="r"><code>flowSum &lt;- data %&gt;%
-  mutate(total_flow = rowSums(across(c(Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415), as.numeric), na.rm = TRUE))
+  mutate(total_flow = rowSums(across(c(Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415, Flow416), as.numeric), na.rm = TRUE))
 
-flowSum &lt;- flowSum %&gt;% select(&#39;Morningstar Category&#39;, &#39;US Category Group&#39;, total_flow, everything())
+flowSum &lt;- flowSum %&gt;% clean_names()
+
+flowSum &lt;- flowSum %&gt;% mutate(pctGrowth = total_flow / assets43)
+
+flowSum &lt;- flowSum %&gt;% select(&#39;morningstar_category&#39;, &#39;us_category_group&#39;, total_flow, pctGrowth, everything())
+
+mcatSum &lt;- flowSum %&gt;%
+  group_by(morningstar_category) %&gt;% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+mcatGrowth &lt;- flowSum %&gt;%
+  group_by(morningstar_category) %&gt;%
+  summarise(pctGrowth = ifelse(sum(assets43, na.rm = TRUE) == 0,
+                               NA_real_,
+                               sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE)))
+
+unique_values &lt;- flowSum %&gt;%
+  distinct(sub_theme_5) %&gt;%  # Select distinct rows based on col
+  pull(sub_theme_5)
+
+broadthemeSum &lt;- flowSum %&gt;%
+  group_by(broad_theme_6) %&gt;% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+subthemeSum &lt;- flowSum %&gt;%
+  group_by(sub_theme_5) %&gt;% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+subthemeGrowth &lt;- flowSum %&gt;%
+  group_by(sub_theme_5) %&gt;%
+  summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Active passive calcs</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZfYWN0aXZlIDwtIGZsb3dTdW0gJT4lIGZpbHRlcihtYW5hZ2VtZW50X2FwcHJvYWNoX2FjdGl2ZSA9PSBcIlllc1wiKVxuZGZfcGFzc2l2ZSA8LSBmbG93U3VtICU+JSBmaWx0ZXIobWFuYWdlbWVudF9hcHByb2FjaF9wYXNzaXZlID09IFwiWWVzXCIpXG5kZl9iZXRhPC0gZmxvd1N1bSAlPiUgZmlsdGVyKG1hbmFnZW1lbnRfYXBwcm9hY2hfc3RyYXRlZ2ljX2JldGEgPT0gXCJZZXNcIilcblxuIyBkZl9hY3RpdmUgPC0gZGZfYWN0aXZlICU+JVxuIyAgIG11dGF0ZShvdmVyYWxsX3BjdEdyb3d0aCA9IHN1bSh0b3RhbF9mbG93LCBuYS5ybSA9IFRSVUUpIC8gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKVxuIyBcbiMgZGZfcGFzc2l2ZSA8LSBkZl9wYXNzaXZlICU+JVxuIyAgIG11dGF0ZShvdmVyYWxsX3BjdEdyb3d0aCA9IHN1bSh0b3RhbF9mbG93LCBuYS5ybSA9IFRSVUUpIC8gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKVxuIyBcbiMgZGZfYWN0aXZlIDwtIGRmX2FjdGl2ZSAlPiUgc2VsZWN0KG92ZXJhbGxfcGN0R3Jvd3RoLCBldmVyeXRoaW5nKCkpXG4jIGRmX3Bhc3NpdmUgPC0gZGZfcGFzc2l2ZSAlPiUgc2VsZWN0KG92ZXJhbGxfcGN0R3Jvd3RoLCBldmVyeXRoaW5nKCkpXG5cbiMgZGZfYWN0aXZlIDwtIGRmX2FjdGl2ZSAlPiUgIG11dGF0ZShvdmVyYWxsX3BjdEdyb3d0aCA9IHNjYWxlczo6cGVyY2VudChwY3RHcm93dGgsIGFjY3VyYWN5ID0gMC4xKSlcblxuZGZfc3VtbWFyeSA8LSBiaW5kX3Jvd3MoXG4gIGRmX2FjdGl2ZSAlPiUgc3VtbWFyaXNlKHR5cGUgPSBcImFjdGl2ZVwiLFxuICAgICAgICAgICAgICAgICAgICAgICAgICB0b3RhbF9mbG93ID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgIGFzc2V0czQzID0gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKSxcbiAgZGZfcGFzc2l2ZSAlPiUgc3VtbWFyaXNlKHR5cGUgPSBcInBhc3NpdmVcIixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIHRvdGFsX2Zsb3cgPSBzdW0odG90YWxfZmxvdywgbmEucm0gPSBUUlVFKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIGFzc2V0czQzID0gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKVxuKSAlPiUgcGl2b3Rfd2lkZXIobmFtZXNfZnJvbSA9IHR5cGUsIHZhbHVlc19mcm9tID0gYyh0b3RhbF9mbG93LCBhc3NldHM0MykpXG5cbmRmX3N1bW1hcnkgPC0gZGZfc3VtbWFyeSAlPiVcbiAgbXV0YXRlKHBjdEdyb3d0aF9hY3RpdmUgPSB0b3RhbF9mbG93X2FjdGl2ZSAvIGFzc2V0czQzX2FjdGl2ZSxcbiAgICAgICAgIHBjdEdyb3d0aF9wYXNzaXZlID0gdG90YWxfZmxvd19wYXNzaXZlIC8gYXNzZXRzNDNfcGFzc2l2ZSlcblxuZGZfc3VtbWFyeSA8LSBkZl9zdW1tYXJ5ICU+JVxuICBtdXRhdGUoYWNyb3NzKHN0YXJ0c193aXRoKFwicGN0R3Jvd3RoXCIpLCB+IHNjYWxlczo6cGVyY2VudCgueCwgYWNjdXJhY3kgPSAwLjEpKSlcblxuXG5cbmBgYCJ9 -->
+<pre class="r"><code>df_active &lt;- flowSum %&gt;% filter(management_approach_active == &quot;Yes&quot;)
+df_passive &lt;- flowSum %&gt;% filter(management_approach_passive == &quot;Yes&quot;)
+df_beta&lt;- flowSum %&gt;% filter(management_approach_strategic_beta == &quot;Yes&quot;)
+
+# df_active &lt;- df_active %&gt;%
+#   mutate(overall_pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+# 
+# df_passive &lt;- df_passive %&gt;%
+#   mutate(overall_pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+# 
+# df_active &lt;- df_active %&gt;% select(overall_pctGrowth, everything())
+# df_passive &lt;- df_passive %&gt;% select(overall_pctGrowth, everything())
+
+# df_active &lt;- df_active %&gt;%  mutate(overall_pctGrowth = scales::percent(pctGrowth, accuracy = 0.1))
+
+df_summary &lt;- bind_rows(
+  df_active %&gt;% summarise(type = &quot;active&quot;,
+                          total_flow = sum(total_flow, na.rm = TRUE),
+                          assets43 = sum(assets43, na.rm = TRUE)),
+  df_passive %&gt;% summarise(type = &quot;passive&quot;,
+                           total_flow = sum(total_flow, na.rm = TRUE),
+                           assets43 = sum(assets43, na.rm = TRUE))
+) %&gt;% pivot_wider(names_from = type, values_from = c(total_flow, assets43))
+
+df_summary &lt;- df_summary %&gt;%
+  mutate(pctGrowth_active = total_flow_active / assets43_active,
+         pctGrowth_passive = total_flow_passive / assets43_passive)
+
+df_summary &lt;- df_summary %&gt;%
+  mutate(across(starts_with(&quot;pctGrowth&quot;), ~ scales::percent(.x, accuracy = 0.1)))
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Leveraged:</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZfbGV2ZXJhZ2VkIDwtIGZsb3dTdW0gJT4lXG4gIGZpbHRlcihzdHJfZGV0ZWN0KHRvbG93ZXIobW9ybmluZ3N0YXJfY2F0ZWdvcnkpLCBcImxldmVyYWdlZFwiKSlcblxuYGBgIn0= -->
+<pre class="r"><code>df_leveraged &lt;- flowSum %&gt;%
+  filter(str_detect(tolower(morningstar_category), &quot;leveraged&quot;))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KDQpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQpgYGB7cn0NCmRhdGEgPC0gcmVhZF9jc3YoIkRhdGEvbGliZXJhdGlvbkZsb3cuY3N2IikNCg0KDQpgYGANCg0KYGBge3J9DQpmbG93U3VtIDwtIGRhdGEgJT4lDQogIG11dGF0ZSh0b3RhbF9mbG93ID0gcm93U3VtcyhhY3Jvc3MoYyhGbG93NDMsIEZsb3c0NCwgRmxvdzQ3LCBGbG93NDgsIEZsb3c0OSwgRmxvdzQxMCwgRmxvdzQxMSwgRmxvdzQxNCwgRmxvdzQxNSksIGFzLm51bWVyaWMpLCBuYS5ybSA9IFRSVUUpKQ0KDQpmbG93U3VtIDwtIGZsb3dTdW0gJT4lIHNlbGVjdCgnTW9ybmluZ3N0YXIgQ2F0ZWdvcnknLCAnVVMgQ2F0ZWdvcnkgR3JvdXAnLCB0b3RhbF9mbG93LCBldmVyeXRoaW5nKCkpDQoNCg0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIAoKYGBge3J9CmxpYnJhcnkoamFuaXRvcikKbGlicmFyeSh0aWR5dmVyc2UpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLgpgYGB7cn0KZGF0YSA8LSByZWFkX2NzdigiRGF0YS90ZXN0Mi5jc3YiKQoKCmBgYAoKYGBge3J9CmZsb3dTdW0gPC0gZGF0YSAlPiUKICBtdXRhdGUodG90YWxfZmxvdyA9IHJvd1N1bXMoYWNyb3NzKGMoRmxvdzQzLCBGbG93NDQsIEZsb3c0NywgRmxvdzQ4LCBGbG93NDksIEZsb3c0MTAsIEZsb3c0MTEsIEZsb3c0MTQsIEZsb3c0MTUsIEZsb3c0MTYpLCBhcy5udW1lcmljKSwgbmEucm0gPSBUUlVFKSkKCmZsb3dTdW0gPC0gZmxvd1N1bSAlPiUgY2xlYW5fbmFtZXMoKQoKZmxvd1N1bSA8LSBmbG93U3VtICU+JSBtdXRhdGUocGN0R3Jvd3RoID0gdG90YWxfZmxvdyAvIGFzc2V0czQzKQoKZmxvd1N1bSA8LSBmbG93U3VtICU+JSBzZWxlY3QoJ21vcm5pbmdzdGFyX2NhdGVnb3J5JywgJ3VzX2NhdGVnb3J5X2dyb3VwJywgdG90YWxfZmxvdywgcGN0R3Jvd3RoLCBldmVyeXRoaW5nKCkpCgptY2F0U3VtIDwtIGZsb3dTdW0gJT4lCiAgZ3JvdXBfYnkobW9ybmluZ3N0YXJfY2F0ZWdvcnkpICU+JSAKICBzdW1tYXJpc2UodG90YWxfZmxvd19zdW0gPSBzdW0odG90YWxfZmxvdywgbmEucm0gPSBUUlVFKSkKCm1jYXRHcm93dGggPC0gZmxvd1N1bSAlPiUKICBncm91cF9ieShtb3JuaW5nc3Rhcl9jYXRlZ29yeSkgJT4lCiAgc3VtbWFyaXNlKHBjdEdyb3d0aCA9IGlmZWxzZShzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkgPT0gMCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5BX3JlYWxfLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkgLyBzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkpKQoKdW5pcXVlX3ZhbHVlcyA8LSBmbG93U3VtICU+JQogIGRpc3RpbmN0KHN1Yl90aGVtZV81KSAlPiUgICMgU2VsZWN0IGRpc3RpbmN0IHJvd3MgYmFzZWQgb24gY29sCiAgcHVsbChzdWJfdGhlbWVfNSkKCmJyb2FkdGhlbWVTdW0gPC0gZmxvd1N1bSAlPiUKICBncm91cF9ieShicm9hZF90aGVtZV82KSAlPiUgCiAgc3VtbWFyaXNlKHRvdGFsX2Zsb3dfc3VtID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkpCgpzdWJ0aGVtZVN1bSA8LSBmbG93U3VtICU+JQogIGdyb3VwX2J5KHN1Yl90aGVtZV81KSAlPiUgCiAgc3VtbWFyaXNlKHRvdGFsX2Zsb3dfc3VtID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkpCgpzdWJ0aGVtZUdyb3d0aCA8LSBmbG93U3VtICU+JQogIGdyb3VwX2J5KHN1Yl90aGVtZV81KSAlPiUKICBzdW1tYXJpc2UocGN0R3Jvd3RoID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkgLyBzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkpCmBgYAoKQWN0aXZlIHBhc3NpdmUgY2FsY3MKYGBge3J9CmRmX2FjdGl2ZSA8LSBmbG93U3VtICU+JSBmaWx0ZXIobWFuYWdlbWVudF9hcHByb2FjaF9hY3RpdmUgPT0gIlllcyIpCmRmX3Bhc3NpdmUgPC0gZmxvd1N1bSAlPiUgZmlsdGVyKG1hbmFnZW1lbnRfYXBwcm9hY2hfcGFzc2l2ZSA9PSAiWWVzIikKZGZfYmV0YTwtIGZsb3dTdW0gJT4lIGZpbHRlcihtYW5hZ2VtZW50X2FwcHJvYWNoX3N0cmF0ZWdpY19iZXRhID09ICJZZXMiKQoKIyBkZl9hY3RpdmUgPC0gZGZfYWN0aXZlICU+JQojICAgbXV0YXRlKG92ZXJhbGxfcGN0R3Jvd3RoID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkgLyBzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkpCiMgCiMgZGZfcGFzc2l2ZSA8LSBkZl9wYXNzaXZlICU+JQojICAgbXV0YXRlKG92ZXJhbGxfcGN0R3Jvd3RoID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSkgLyBzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkpCiMgCiMgZGZfYWN0aXZlIDwtIGRmX2FjdGl2ZSAlPiUgc2VsZWN0KG92ZXJhbGxfcGN0R3Jvd3RoLCBldmVyeXRoaW5nKCkpCiMgZGZfcGFzc2l2ZSA8LSBkZl9wYXNzaXZlICU+JSBzZWxlY3Qob3ZlcmFsbF9wY3RHcm93dGgsIGV2ZXJ5dGhpbmcoKSkKCiMgZGZfYWN0aXZlIDwtIGRmX2FjdGl2ZSAlPiUgIG11dGF0ZShvdmVyYWxsX3BjdEdyb3d0aCA9IHNjYWxlczo6cGVyY2VudChwY3RHcm93dGgsIGFjY3VyYWN5ID0gMC4xKSkKCmRmX3N1bW1hcnkgPC0gYmluZF9yb3dzKAogIGRmX2FjdGl2ZSAlPiUgc3VtbWFyaXNlKHR5cGUgPSAiYWN0aXZlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICB0b3RhbF9mbG93ID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgYXNzZXRzNDMgPSBzdW0oYXNzZXRzNDMsIG5hLnJtID0gVFJVRSkpLAogIGRmX3Bhc3NpdmUgJT4lIHN1bW1hcmlzZSh0eXBlID0gInBhc3NpdmUiLAogICAgICAgICAgICAgICAgICAgICAgICAgICB0b3RhbF9mbG93ID0gc3VtKHRvdGFsX2Zsb3csIG5hLnJtID0gVFJVRSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgIGFzc2V0czQzID0gc3VtKGFzc2V0czQzLCBuYS5ybSA9IFRSVUUpKQopICU+JSBwaXZvdF93aWRlcihuYW1lc19mcm9tID0gdHlwZSwgdmFsdWVzX2Zyb20gPSBjKHRvdGFsX2Zsb3csIGFzc2V0czQzKSkKCmRmX3N1bW1hcnkgPC0gZGZfc3VtbWFyeSAlPiUKICBtdXRhdGUocGN0R3Jvd3RoX2FjdGl2ZSA9IHRvdGFsX2Zsb3dfYWN0aXZlIC8gYXNzZXRzNDNfYWN0aXZlLAogICAgICAgICBwY3RHcm93dGhfcGFzc2l2ZSA9IHRvdGFsX2Zsb3dfcGFzc2l2ZSAvIGFzc2V0czQzX3Bhc3NpdmUpCgpkZl9zdW1tYXJ5IDwtIGRmX3N1bW1hcnkgJT4lCiAgbXV0YXRlKGFjcm9zcyhzdGFydHNfd2l0aCgicGN0R3Jvd3RoIiksIH4gc2NhbGVzOjpwZXJjZW50KC54LCBhY2N1cmFjeSA9IDAuMSkpKQoKYGBgCgoKTGV2ZXJhZ2VkOgpgYGB7cn0KZGZfbGV2ZXJhZ2VkIDwtIGZsb3dTdW0gJT4lCiAgZmlsdGVyKHN0cl9kZXRlY3QodG9sb3dlcihtb3JuaW5nc3Rhcl9jYXRlZ29yeSksICJsZXZlcmFnZWQiKSkKCmBgYAo=</div>
 
 
 
