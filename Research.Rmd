@@ -47,6 +47,14 @@ broadthemeSum <- flowSum %>%
   group_by(broad_theme_6) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
 
+themeSum <- flowSum %>%
+  group_by(theme_7) %>% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+themeGrowth <- flowSum %>%
+  group_by(theme_7) %>%
+  summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+
 subthemeSum <- flowSum %>%
   group_by(sub_theme_5) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
@@ -54,6 +62,11 @@ subthemeSum <- flowSum %>%
 subthemeGrowth <- flowSum %>%
   group_by(sub_theme_5) %>%
   summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+
+allGrowth <- flowSum %>%
+  group_by(name) %>%
+  summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+
 ```
 
 Active passive calcs
@@ -61,6 +74,8 @@ Active passive calcs
 df_active <- flowSum %>% filter(management_approach_active == "Yes")
 df_passive <- flowSum %>% filter(management_approach_passive == "Yes")
 df_beta<- flowSum %>% filter(management_approach_strategic_beta == "Yes")
+df_domicile<- flowSum %>% filter(domicile == "United States")
+
 
 # df_active <- df_active %>%
 #   mutate(overall_pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
@@ -88,6 +103,9 @@ df_summary <- df_summary %>%
 
 df_summary <- df_summary %>%
   mutate(across(starts_with("pctGrowth"), ~ scales::percent(.x, accuracy = 0.1)))
+
+df_subtheme <- flowSum %>% filter(!is.na(sub_theme_5) & sub_theme_5 != "")
+df_theme <- flowSum %>% filter(!is.na(theme_7) & theme_7 != "")
 
 ```
 
