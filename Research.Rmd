@@ -14,14 +14,14 @@ library(tidyverse)
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 ```{r}
-data <- read_csv("Data/test2.csv")
+data <- read_csv("Data/FinalIG.csv")
 
 
 ```
 
 ```{r}
 flowSum <- data %>%
-  mutate(total_flow = rowSums(across(c(Flow43, Flow44, Flow47, Flow48, Flow49, Flow410, Flow411, Flow414, Flow415, Flow416), as.numeric), na.rm = TRUE))
+  mutate(total_flow = rowSums(across(c(flow43, flow44, flow47, flow48, flow49, flow410, flow411, flow414, flow415, flow416, flow417, flow421), as.numeric), na.rm = TRUE))
 
 flowSum <- flowSum %>% clean_names()
 
@@ -40,27 +40,27 @@ mcatGrowth <- flowSum %>%
                                sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE)))
 
 unique_values <- flowSum %>%
-  distinct(sub_theme_5) %>%  # Select distinct rows based on col
-  pull(sub_theme_5)
+  distinct(sub_theme) %>%  # Select distinct rows based on col
+  pull(sub_theme)
 
 broadthemeSum <- flowSum %>%
-  group_by(broad_theme_6) %>% 
+  group_by(broad_theme) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
 
 themeSum <- flowSum %>%
-  group_by(theme_7) %>% 
+  group_by(theme) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
 
 themeGrowth <- flowSum %>%
-  group_by(theme_7) %>%
+  group_by(theme) %>%
   summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
 
 subthemeSum <- flowSum %>%
-  group_by(sub_theme_5) %>% 
+  group_by(sub_theme) %>% 
   summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
 
 subthemeGrowth <- flowSum %>%
-  group_by(sub_theme_5) %>%
+  group_by(sub_theme) %>%
   summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
 
 allGrowth <- flowSum %>%
@@ -69,11 +69,11 @@ allGrowth <- flowSum %>%
 
 ```
 
-Active passive calcs
+Active passive calcs, domicile filter
 ```{r}
-df_active <- flowSum %>% filter(management_approach_active == "Yes")
-df_passive <- flowSum %>% filter(management_approach_passive == "Yes")
-df_beta<- flowSum %>% filter(management_approach_strategic_beta == "Yes")
+# df_active <- flowSum %>% filter(management_approach_active == "Yes")
+# df_passive <- flowSum %>% filter(management_approach_passive == "Yes")
+# df_beta<- flowSum %>% filter(management_approach_strategic_beta == "Yes")
 df_domicile<- flowSum %>% filter(domicile == "United States")
 
 
@@ -88,24 +88,24 @@ df_domicile<- flowSum %>% filter(domicile == "United States")
 
 # df_active <- df_active %>%  mutate(overall_pctGrowth = scales::percent(pctGrowth, accuracy = 0.1))
 
-df_summary <- bind_rows(
-  df_active %>% summarise(type = "active",
-                          total_flow = sum(total_flow, na.rm = TRUE),
-                          assets43 = sum(assets43, na.rm = TRUE)),
-  df_passive %>% summarise(type = "passive",
-                           total_flow = sum(total_flow, na.rm = TRUE),
-                           assets43 = sum(assets43, na.rm = TRUE))
-) %>% pivot_wider(names_from = type, values_from = c(total_flow, assets43))
+# df_summary <- bind_rows(
+#   df_active %>% summarise(type = "active",
+#                           total_flow = sum(total_flow, na.rm = TRUE),
+#                           assets43 = sum(assets43, na.rm = TRUE)),
+#   df_passive %>% summarise(type = "passive",
+#                            total_flow = sum(total_flow, na.rm = TRUE),
+#                            assets43 = sum(assets43, na.rm = TRUE))
+# ) %>% pivot_wider(names_from = type, values_from = c(total_flow, assets43))
+# 
+# df_summary <- df_summary %>%
+#   mutate(pctGrowth_active = total_flow_active / assets43_active,
+#          pctGrowth_passive = total_flow_passive / assets43_passive)
+# 
+# df_summary <- df_summary %>%
+#   mutate(across(starts_with("pctGrowth"), ~ scales::percent(.x, accuracy = 0.1)))
 
-df_summary <- df_summary %>%
-  mutate(pctGrowth_active = total_flow_active / assets43_active,
-         pctGrowth_passive = total_flow_passive / assets43_passive)
-
-df_summary <- df_summary %>%
-  mutate(across(starts_with("pctGrowth"), ~ scales::percent(.x, accuracy = 0.1)))
-
-df_subtheme <- flowSum %>% filter(!is.na(sub_theme_5) & sub_theme_5 != "")
-df_theme <- flowSum %>% filter(!is.na(theme_7) & theme_7 != "")
+df_subtheme <- flowSum %>% filter(!is.na(sub_theme) & sub_theme != "")
+df_theme <- flowSum %>% filter(!is.na(theme) & theme != "")
 
 ```
 
@@ -114,5 +114,10 @@ Leveraged:
 ```{r}
 df_leveraged <- flowSum %>%
   filter(str_detect(tolower(morningstar_category), "leveraged"))
+
+df_leveraged <- df_leveraged %>%
+   mutate(levFlow = sum(total_flow, na.rm = TRUE))
+
+df_leveraged <- df_leveraged %>% select(levFlow, everything())
 
 ```
