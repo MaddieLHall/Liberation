@@ -21,9 +21,11 @@ data <- read_csv("Data/FinalIG.csv")
 
 ```{r}
 flowSum <- data %>%
-  mutate(total_flow = rowSums(across(c(flow43, flow44, flow47, flow48, flow49, flow410, flow411, flow414, flow415, flow416, flow417, flow421), as.numeric), na.rm = TRUE))
+  mutate(total_flow = rowSums(across(c(flow43, flow44, flow47, flow48, flow49, flow410, flow411, flow414, flow415, flow416, flow417, flow421, flow422, flow423, flow424, flow425), as.numeric), na.rm = TRUE))
 
 flowSum <- flowSum %>% clean_names()
+
+flowSum <- flowSum %>% filter(domicile == "United States")
 
 flowSum <- flowSum %>% mutate(pctGrowth = total_flow / assets43)
 
@@ -38,6 +40,10 @@ mcatGrowth <- flowSum %>%
   summarise(pctGrowth = ifelse(sum(assets43, na.rm = TRUE) == 0,
                                NA_real_,
                                sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE)))
+
+mcatAssets <- flowSum %>% 
+  group_by(morningstar_category) %>% 
+  summarise(sum(assets425, na.rm = TRUE))
 
 unique_values <- flowSum %>%
   distinct(sub_theme) %>%  # Select distinct rows based on col
@@ -65,7 +71,8 @@ subthemeGrowth <- flowSum %>%
 
 allGrowth <- flowSum %>%
   group_by(name) %>%
-  summarise(pctGrowth = sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE))
+  summarise(pctGrowth = (sum(total_flow, na.rm = TRUE) / sum(assets43, na.rm = TRUE)) * 100)
+
 
 ```
 
@@ -107,6 +114,21 @@ df_domicile<- flowSum %>% filter(domicile == "United States")
 df_subtheme <- flowSum %>% filter(!is.na(sub_theme) & sub_theme != "")
 df_theme <- flowSum %>% filter(!is.na(theme) & theme != "")
 
+allFlow <- flowSum %>% 
+  group_by(name) %>% 
+  summarise(sum(total_flow, na.rm =TRUE))
+
+allSum <- flowSum %>% 
+  group_by(name) %>% 
+  summarise(sum(assets425, na.rm =TRUE))
+
+themeaticFlow <- flowSum %>%
+  filter(!is.na(sub_theme) & sub_theme != "") %>%
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
+inAllFlow <- flowSum %>% 
+  summarise(total_flow_sum = sum(total_flow, na.rm = TRUE))
+
 ```
 
 
@@ -119,5 +141,9 @@ df_leveraged <- df_leveraged %>%
    mutate(levFlow = sum(total_flow, na.rm = TRUE))
 
 df_leveraged <- df_leveraged %>% select(levFlow, everything())
+
+```
+
+```{r}
 
 ```
